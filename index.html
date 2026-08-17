@@ -1,0 +1,149 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+  <title>Omnix Core</title>
+
+  <script src="https://telegram.org/js/telegram-web-app.js"></script>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: Arial, sans-serif;
+      background: #0b0b0b;
+      color: white;
+      min-height: 100vh;
+      padding: 24px;
+    }
+
+    .container {
+      max-width: 500px;
+      margin: auto;
+    }
+
+    .logo {
+      font-size: 32px;
+      font-weight: 800;
+      margin-bottom: 8px;
+    }
+
+    .subtitle {
+      color: #999;
+      margin-bottom: 30px;
+    }
+
+    .card {
+      background: #151515;
+      border: 1px solid #292929;
+      border-radius: 20px;
+      padding: 24px;
+      margin-bottom: 16px;
+    }
+
+    .welcome {
+      font-size: 24px;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
+
+    .username {
+      color: #aaa;
+      margin-bottom: 20px;
+    }
+
+    .button {
+      width: 100%;
+      border: none;
+      border-radius: 14px;
+      padding: 16px;
+      background: white;
+      color: black;
+      font-size: 16px;
+      font-weight: 700;
+      cursor: pointer;
+    }
+
+    .button:active {
+      transform: scale(0.98);
+    }
+
+    .balance {
+      font-size: 32px;
+      font-weight: 800;
+      margin-top: 8px;
+    }
+  </style>
+</head>
+
+<body>
+
+  <div class="container">
+
+    <div class="logo">
+      OMNIX CORE
+    </div>
+
+    <div class="subtitle">
+      Your digital ecosystem.
+    </div>
+
+    <div class="card">
+
+      <div class="welcome">
+        Welcome 👋
+      </div>
+
+      <div class="username" id="username">
+        Loading Telegram user...
+      </div>
+
+      <button class="button" onclick="showMessage()">
+        Get Started 🚀
+      </button>
+
+    </div>
+
+    <div class="card">
+
+      <div>
+        Balance
+      </div>
+
+      <div class="balance">
+        $0.00
+      </div>
+
+    </div>
+
+  </div>
+
+  <script>
+    const tg = window.Telegram.WebApp;
+
+    tg.ready();
+    tg.expand();
+
+    const user = tg.initDataUnsafe?.user;
+
+    if (user) {
+      document.getElementById("username").textContent =
+        "Hello, " + (user.first_name || "User") + "!";
+    } else {
+      document.getElementById("username").textContent =
+        "Open this app inside Telegram.";
+    }
+
+    function showMessage() {
+      tg.showAlert("Welcome to Omnix Core 🚀");
+    }
+  </script>
+
+</body>
+</html>
