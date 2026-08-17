@@ -112,15 +112,52 @@
 
     </div>
 
-    <div class="card">
+    <div class="card"><div class="card" id="registrationCard" style="display: none;">
 
-      <div>
-        Balance
-      </div>
+  <div class="welcome">
+    Create Your Account 📝
+  </div>
 
-      <div class="balance">
-        $0.00
-      </div>
+  <div class="username">
+    Enter your information to continue.
+  </div>
+
+  <input
+    type="text"
+    id="firstName"
+    placeholder="First Name"
+    style="width:100%; padding:15px; margin-bottom:12px; border-radius:12px; border:1px solid #333; background:#0b0b0b; color:white;"
+  >
+
+  <input
+    type="text"
+    id="lastName"
+    placeholder="Last Name"
+    style="width:100%; padding:15px; margin-bottom:12px; border-radius:12px; border:1px solid #333; background:#0b0b0b; color:white;"
+  >
+
+  <input
+    type="email"
+    id="email"
+    placeholder="Email Address"
+    style="width:100%; padding:15px; margin-bottom:12px; border-radius:12px; border:1px solid #333; background:#0b0b0b; color:white;"
+  >
+
+  <input
+    type="tel"
+    id="phone"
+    placeholder="Phone Number"
+    style="width:100%; padding:15px; margin-bottom:20px; border-radius:12px; border:1px solid #333; background:#0b0b0b; color:white;"
+  >
+
+  <button
+    class="button"
+    onclick="submitRegistration()"
+  >
+    Create Account ✅
+  </button>
+
+</div>
 
     </div>
 
