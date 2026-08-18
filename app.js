@@ -74,7 +74,7 @@ document
 
         showScreen(catalogueScreen);
 
-        renderMovies();
+        loadMovies();
 
     });
 
