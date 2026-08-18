@@ -88,218 +88,25 @@ document
  * ou gen dwa distribye.
  */
 
-const movies = [
+const MOVIES_API =
+    "https://script.google.com/macros/s/AKfycbzZUUm_Km6l6tEXd7vpAFm2Vj8o7kdhBdWwwPp4b45nuVq8_GzIEso0dqEGTESlJZu0/exec";
 
-    {
-        id: 1,
-        title: "Movie One",
-        year: "2026",
-        genre: "Action",
-        poster: "https://placehold.co/400x600/111111/ffffff?text=Movie+1",
-        description:
-            "Description du film à ajouter ici.",
-        link:
-            "https://example.com"
-    },
+let movies = [];
 
-    {
-        id: 2,
-        title: "Movie Two",
-        year: "2026",
-        genre: "Drama",
-        poster: "https://placehold.co/400x600/111111/ffffff?text=Movie+2",
-        description:
-            "Description du film à ajouter ici.",
-        link:
-            "https://example.com"
-    },
+async function loadMovies() {
 
-    {
-        id: 3,
-        title: "Movie Three",
-        year: "2025",
-        genre: "Comedy",
-        poster: "https://placehold.co/400x600/111111/ffffff?text=Movie+3",
-        description:
-            "Description du film à ajouter ici.",
-        link:
-            "https://example.com"
-    },
+    try {
 
-    {
-        id: 4,
-        title: "Movie Four",
-        year: "2025",
-        genre: "Adventure",
-        poster: "https://placehold.co/400x600/111111/ffffff?text=Movie+4",
-        description:
-            "Description du film à ajouter ici.",
-        link:
-            "https://example.com"
+        const response = await fetch(MOVIES_API);
+
+        movies = await response.json();
+
+        renderMovies();
+
+    } catch (error) {
+
+        console.error("Erreur chargement films:", error);
+
     }
 
-];
-
-
-/* ================================= */
-/* RENDER MOVIES */
-/* ================================= */
-
-function renderMovies(list = movies) {
-
-    const movieList = document.getElementById("movieList");
-
-    movieList.innerHTML = "";
-
-    if (list.length === 0) {
-
-        movieList.innerHTML = `
-            <p style="
-                grid-column: 1 / -1;
-                text-align: center;
-                color: #777;
-                padding: 40px 0;
-            ">
-                Aucun film trouvé.
-            </p>
-        `;
-
-        return;
-    }
-
-
-    list.forEach(movie => {
-
-        const card = document.createElement("div");
-
-        card.className = "movie-card";
-
-        card.innerHTML = `
-
-            <img
-                class="movie-poster"
-                src="${movie.poster}"
-                alt="${movie.title}"
-            >
-
-            <div class="movie-info">
-
-                <div class="movie-title">
-                    ${movie.title}
-                </div>
-
-                <div class="movie-meta">
-                    ${movie.year} • ${movie.genre}
-                </div>
-
-            </div>
-
-        `;
-
-
-        card.addEventListener("click", () => {
-
-            showMovieDetails(movie);
-
-        });
-
-
-        movieList.appendChild(card);
-
-    });
-
 }
-
-
-/* ================================= */
-/* MOVIE DETAILS */
-/* ================================= */
-
-function showMovieDetails(movie) {
-
-    const details = document.getElementById("movieDetails");
-
-    details.innerHTML = `
-
-        <img
-            class="details-poster"
-            src="${movie.poster}"
-            alt="${movie.title}"
-        >
-
-        <h1 class="details-title">
-            ${movie.title}
-        </h1>
-
-        <p class="details-meta">
-            ${movie.year} • ${movie.genre}
-        </p>
-
-        <p class="details-description">
-            ${movie.description}
-        </p>
-
-        <a
-            class="watch-btn"
-            href="${movie.link}"
-            target="_blank"
-            rel="noopener noreferrer"
-        >
-            CONTINUER →
-        </a>
-
-    `;
-
-    showScreen(detailsScreen);
-}
-
-
-/* ================================= */
-/* BACK BUTTONS */
-/* ================================= */
-
-document
-    .getElementById("backBtn")
-    .addEventListener("click", () => {
-
-        showScreen(homeScreen);
-
-    });
-
-
-document
-    .getElementById("detailsBackBtn")
-    .addEventListener("click", () => {
-
-        showScreen(catalogueScreen);
-
-    });
-
-
-/* ================================= */
-/* SEARCH */
-/* ================================= */
-
-document
-    .getElementById("searchInput")
-    .addEventListener("input", function () {
-
-        const search = this.value
-            .toLowerCase()
-            .trim();
-
-
-        const filteredMovies = movies.filter(movie => {
-
-            return (
-                movie.title.toLowerCase().includes(search) ||
-                movie.genre.toLowerCase().includes(search) ||
-                movie.year.includes(search)
-            );
-
-        });
-
-
-        renderMovies(filteredMovies);
-
-    });
