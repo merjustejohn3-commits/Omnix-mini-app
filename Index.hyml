@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>MovieCore</title>
+
+    <link rel="stylesheet" href="style.css">
+
+    <!-- Telegram Mini App -->
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+</head>
+
+<body>
+
+    <main class="app">
+
+        <!-- ==================== -->
+        <!-- WELCOME -->
+        <!-- ==================== -->
+
+        <section id="welcomeScreen" class="screen active">
+
+            <div class="welcome-content">
+
+                <div class="logo">
+                    <span>Movie</span><strong>Core</strong>
+                </div>
+
+                <p class="tagline">
+                    Votre destination cinéma.
+                </p>
+
+                <button id="continueBtn" class="primary-btn">
+                    CONTINUER
+                    <span>→</span>
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <!-- ==================== -->
+        <!-- HOME -->
+        <!-- ==================== -->
+
+        <section id="homeScreen" class="screen">
+
+            <header class="header">
+
+                <div class="small-logo">
+                    Movie<strong>Core</strong>
+                </div>
+
+            </header>
+
+            <div class="home-content">
+
+                <p class="welcome-text">
+                    Bienvenue sur
+                </p>
+
+                <h1>
+                    MovieCore
+                </h1>
+
+                <p class="description">
+                    Découvrez notre catalogue de films.
+                </p>
+
+                <button id="movieBtn" class="movie-btn">
+
+                    <span class="movie-icon">🎬</span>
+
+                    <span>
+                        <small>CATALOGUE</small>
+                        MOVIE
+                    </span>
+
+                    <span class="arrow">→</span>
+
+                </button>
+
+            </div>
+
+        </section>
+
+
+        <!-- ==================== -->
+        <!-- MOVIE CATALOGUE -->
+        <!-- ==================== -->
+
+        <section id="catalogueScreen" class="screen">
+
+            <header class="catalogue-header">
+
+                <button id="backBtn" class="back-btn">
+                    ←
+                </button>
+
+                <h2>Movies</h2>
+
+            </header>
+
+
+            <div class="search-container">
+
+                <input
+                    type="text"
+                    id="searchInput"
+                    placeholder="Rechercher un film..."
+                >
+
+            </div>
+
+
+            <div id="movieList" class="movie-grid"></div>
+
+        </section>
+
+
+        <!-- ==================== -->
+        <!-- MOVIE DETAILS -->
+        <!-- ==================== -->
+
+        <section id="detailsScreen" class="screen">
+
+            <header class="catalogue-header">
+
+                <button id="detailsBackBtn" class="back-btn">
+                    ←
+                </button>
+
+                <h2>Movie</h2>
+
+            </header>
+
+            <div id="movieDetails" class="movie-details"></div>
+
+        </section>
+
+    </main>
+
+
+    <script src="app.js"></script>
+
+</body>
+</html>
