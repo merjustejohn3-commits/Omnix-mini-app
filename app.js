@@ -45,7 +45,6 @@ document
 
         show_11593326().then(() => {
 
-            // Apre reklam nan fini
             showScreen(homeScreen);
 
         });
