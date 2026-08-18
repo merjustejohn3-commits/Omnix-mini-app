@@ -43,19 +43,14 @@ document
     .getElementById("continueBtn")
     .addEventListener("click", () => {
 
-// Rewarded interstitial
+        show_11593326().then(() => {
 
-show_11593326().then(() => {
-    // You need to add your user reward function here, which will be executed after the user watches the ad.
-    // For more details, please refer to the detailed instructions.
-    );
-})
+            // Apre reklam nan fini
+            showScreen(homeScreen);
 
-        
-        showScreen(homeScreen);
+        });
 
     });
-
 
 /* ================================= */
 /* MOVIE BUTTON */
