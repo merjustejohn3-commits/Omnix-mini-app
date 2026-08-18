@@ -43,9 +43,6 @@ document
     .getElementById("continueBtn")
     .addEventListener("click", () => {
 
-
-/
-
 // Rewarded interstitial
 
 show_11593326().then(() => {
