@@ -43,14 +43,27 @@ document
     .getElementById("continueBtn")
     .addEventListener("click", () => {
 
-        show_11593326().then(() => {
+        console.log("BUTTON WORKS");
 
-            showScreen(homeScreen);
+        if (typeof show_11593326 !== "function") {
+            alert("Monetag SDK pa chaje");
+            return;
+        }
 
-        });
+        show_11593326()
+            .then(() => {
+
+                showScreen(homeScreen);
+
+            })
+            .catch((error) => {
+
+                console.error("Monetag error:", error);
+                alert("Reklam nan pa disponib");
+
+            });
 
     });
-
 /* ================================= */
 /* MOVIE BUTTON */
 /* ================================= */
