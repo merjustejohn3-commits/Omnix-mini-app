@@ -43,18 +43,12 @@ document
     .getElementById("continueBtn")
     .addEventListener("click", () => {
 
-        /*
-         * PUB ICI
-         *
-         * Lè n ap konekte Monetag,
-         * se la nou pral mete code publicitaire a.
-         *
-         * Apre publicité a fin complete,
-         * nou pral rele:
-         *
-         * showScreen(homeScreen);
-         */
 
+// Rewarded interstitial
+
+show_11593326().then(() => {
+    // You need to add your user reward function here, which will be executed after the user watches the ad.
+    // For more details, please refer to the detailed instructions.
         showScreen(homeScreen);
 
     });
